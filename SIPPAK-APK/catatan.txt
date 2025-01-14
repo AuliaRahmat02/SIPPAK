@@ -1,0 +1,23 @@
+INDEX KODE SURAT PENGANTAR pada tabel naik_ver2s
+1 = surat Kenaikan pangkat
+2 = surat Pensiun
+3 = Kartu isteri/suami
+4 = surat Permohonan izin Belajar
+5 = surat ijazah dan pemakaian gelar
+6 = surat penghargaan satyalencana
+
+
+FASE PENGAJUAN SURAT
+0 = TU biro
+1 = Operator Adpim
+2 = kabag
+3 = kabiro
+
+
+kode untuk field jenis pada tabel surat_pengantar_vers (sama dengan index kode surat pengantar)
+1 = surat Kenaikan pangkat
+2 = surat Pensiun
+3 = Kartu isteri/suami
+4 = surat Permohonan izin Belajar
+5 = surat ijazah dan pemakaian gelar
+6 = surat penghargaan satya lencana
