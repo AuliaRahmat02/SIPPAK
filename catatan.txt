@@ -21,3 +21,8 @@ kode untuk field jenis pada tabel surat_pengantar_vers (sama dengan index kode s
 4 = surat Permohonan izin Belajar
 5 = surat ijazah dan pemakaian gelar
 6 = surat penghargaan satya lencana
+
+
+controller
+model
+model-user-opadpim

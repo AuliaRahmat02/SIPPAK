@@ -6,7 +6,7 @@ use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class cuti_ver_model extends Model
+class Cuti_ver_model extends Model
 {
     use HasFactory;
 
@@ -15,7 +15,7 @@ class cuti_ver_model extends Model
     public $incrementing = false;
     protected $keyType = 'string';
 
-    protected $fillable=[
+    protected $fillable = [
         'id',
         'nip',
         'fase',

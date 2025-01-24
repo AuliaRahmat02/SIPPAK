@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Maatwebsite\Excel\Facades\Excel;
 
-class rekapKGBController extends Controller
+class RekapKGBController extends Controller
 {
     public function show(){
         $data = DB::table('pegawais')

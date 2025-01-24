@@ -7,15 +7,15 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Models\cutiUp;
 
-class tampilController extends Controller
+class TampilController extends Controller
 {
 
     public function viewPdf($id)
     {
         // Find the file by its ID
         $file = DB::table('cuti_ups')
-        ->where('id', $id)
-        ->first(); // Adjust to match your actual table structure
+            ->where('id', $id)
+            ->first(); // Adjust to match your actual table structure
 
 
         // Get the binary PDF data
@@ -31,7 +31,7 @@ class tampilController extends Controller
     public function showPdfView($id)
     {
         // Retrieve the file info from the database
-        $file = cutiUp::where('id',"=", $id)->first();
+        $file = cutiUp::where('id', "=", $id)->first();
 
 
         // Return the view with the file info
@@ -44,13 +44,12 @@ class tampilController extends Controller
     {
         // Retrieve the file info from the database
         $file = DB::table('cuti_ups')
-        ->where('ID',"=", $id)
-        ->first();
+            ->where('ID', "=", $id)
+            ->first();
 
-        
+
 
         // Return the view with the file info
         return $file;
     }
-
 }

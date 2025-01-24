@@ -6,7 +6,7 @@ use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class history extends Model
+class History extends Model
 {
     use HasFactory;
     protected $table = 'histories';

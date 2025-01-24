@@ -16,48 +16,49 @@ use Illuminate\Support\Facades\Storage;
 class UsersetController extends Controller
 {
     // menampilkan halamn usersetting -> (ADMIN)
-    public function showuser(){
+    public function showuser()
+    {
 
         $reg = DB::table('kontrol')
-                        ->where('set','=',"REG")
-                        ->where('code','=','539')
-                        ->count();
+            ->where('set', '=', "REG")
+            ->where('code', '=', '539')
+            ->count();
 
         $regOPR = DB::table('kontrol')
-                        ->where('set','=',"OPR")
-                        ->where('code','=','555')
-                        ->count();
+            ->where('set', '=', "OPR")
+            ->where('code', '=', '555')
+            ->count();
 
 
         $regJFT = DB::table('kontrol')
-                        ->where('set','=',"JFT")
-                        ->where('code','=','531')
-                        ->count();
+            ->where('set', '=', "JFT")
+            ->where('code', '=', '531')
+            ->count();
 
         $regKBG = DB::table('kontrol')
-                        ->where('set','=',"KBG")
-                        ->where('code','=','532')
-                        ->count();
+            ->where('set', '=', "KBG")
+            ->where('code', '=', '532')
+            ->count();
 
         $regKBR = DB::table('kontrol')
-                        ->where('set','=',"KBR")
-                        ->where('code','=','533')
-                        ->count();
+            ->where('set', '=', "KBR")
+            ->where('code', '=', '533')
+            ->count();
 
         $forgot = DB::table('kontrol')
-                        ->where('set','=',"FRG")
-                        ->where('code','=','935')
-                        ->count();
+            ->where('set', '=', "FRG")
+            ->where('code', '=', '935')
+            ->count();
 
-        return view('userset.userset',[
-            'title'=>'User Setting',
-            'admin'=>users::where('biro','<','10')->get(),
-            'reg'=>$reg,
-            'regOPR'=>$regOPR,
-            'regJFT'=>$regJFT,
-            'regKBG'=>$regKBG,
-            'regKBR'=>$regKBR,
-            'forgot'=>$forgot,
+        return view('userset.userset', [
+            'title' => 'User Setting',
+            'admin' => users::where('biro', '<', '10')->get(),
+            'reg' => $reg,
+            'regOPR' => $regOPR,
+            'regJFT' => $regJFT,
+            'regKBG' => $regKBG,
+            'regKBR' => $regKBR,
+            'forgot' => $forgot,
         ]);
     }
 
@@ -66,10 +67,9 @@ class UsersetController extends Controller
     // menampilkan halaman registrasi TU Biro
     public function Registrasi()
     {
-        return view("userset.register",[
+        return view("userset.register", [
             "title" => "Registrasi"
         ]);
-
     }
 
     // melakukan proses registrasi TU Biro
@@ -77,31 +77,31 @@ class UsersetController extends Controller
     {
 
         $valid = $req->validate([
-            "nip"=>"required|min:18|max:18",
-            "nama"=>"required|min:5|max:30",
-            "biro"=>"required",
-            "email"=>"required|string|email|max:255|unique:users",
-            "pass"=> 'required|min:8',
-        ],[
-            'nip'=>[
-                'required'=>'NIP wajib diisi',
-                'min'=>'jumlah NIP kurang dari 18 karakter',
-                'max'=>'jumlah NIP melebihi 18 karakter',
+            "nip" => "required|min:18|max:18",
+            "nama" => "required|min:5|max:30",
+            "biro" => "required",
+            "email" => "required|string|email|max:255|unique:users",
+            "pass" => 'required|min:8',
+        ], [
+            'nip' => [
+                'required' => 'NIP wajib diisi',
+                'min' => 'jumlah NIP kurang dari 18 karakter',
+                'max' => 'jumlah NIP melebihi 18 karakter',
             ],
-            'nama'=>[
-                'required'=>'Nama wajib diisi',
-                'min'=>'jumlah Nama kurang dari 5 karakter',
-                'max'=>'jumlah Nama melebihi 30 karakter',
+            'nama' => [
+                'required' => 'Nama wajib diisi',
+                'min' => 'jumlah Nama kurang dari 5 karakter',
+                'max' => 'jumlah Nama melebihi 30 karakter',
             ],
-            'biro'=>[
-                'required'=>'Nama wajib diisi',
+            'biro' => [
+                'required' => 'Nama wajib diisi',
             ],
-            'email'=>[
-                'required'=>'email wajib diisi',
+            'email' => [
+                'required' => 'email wajib diisi',
             ],
-            'pass'=>[
-                'required'=>'Password wajib diisi',
-                'min'=>'jumlah Password kurang dari 8 karakter',
+            'pass' => [
+                'required' => 'Password wajib diisi',
+                'min' => 'jumlah Password kurang dari 8 karakter',
             ]
         ]);
 
@@ -127,10 +127,9 @@ class UsersetController extends Controller
     // menampilkan halaman registrasi OPR
     public function RegistrasiOPR()
     {
-        return view("userset.registerOPR",[
+        return view("userset.registerOPR", [
             "title" => "Registrasi"
         ]);
-
     }
 
     // melakukan proses registrasi OPR
@@ -138,27 +137,27 @@ class UsersetController extends Controller
     {
 
         $valid = $req->validate([
-            "nip"=>"required|min:18|max:18",
-            "nama"=>"required|min:5|max:30",
-            "email"=>"required|string|email|max:255|unique:users",
-            "pass"=> 'required|min:8',
-        ],[
-            'nip'=>[
-                'required'=>'NIP wajib diisi',
-                'min'=>'jumlah NIP kurang dari 18 karakter',
-                'max'=>'jumlah NIP melebihi 18 karakter',
+            "nip" => "required|min:18|max:18",
+            "nama" => "required|min:5|max:30",
+            "email" => "required|string|email|max:255|unique:users",
+            "pass" => 'required|min:8',
+        ], [
+            'nip' => [
+                'required' => 'NIP wajib diisi',
+                'min' => 'jumlah NIP kurang dari 18 karakter',
+                'max' => 'jumlah NIP melebihi 18 karakter',
             ],
-            'nama'=>[
-                'required'=>'Nama wajib diisi',
-                'min'=>'jumlah Nama kurang dari 5 karakter',
-                'max'=>'jumlah Nama melebihi 30 karakter',
+            'nama' => [
+                'required' => 'Nama wajib diisi',
+                'min' => 'jumlah Nama kurang dari 5 karakter',
+                'max' => 'jumlah Nama melebihi 30 karakter',
             ],
-            'email'=>[
-                'required'=>'email wajib diisi',
+            'email' => [
+                'required' => 'email wajib diisi',
             ],
-            'pass'=>[
-                'required'=>'Password wajib diisi',
-                'min'=>'jumlah Password kurang dari 8 karakter',
+            'pass' => [
+                'required' => 'Password wajib diisi',
+                'min' => 'jumlah Password kurang dari 8 karakter',
             ]
         ]);
 
@@ -185,10 +184,9 @@ class UsersetController extends Controller
     // menampilkan halaman registrasi JFT
     public function RegistrasiJFT()
     {
-        return view("userset.registerJFT",[
+        return view("userset.registerJFT", [
             "title" => "Registrasi"
         ]);
-
     }
 
     // melakukan proses registrasi JFT
@@ -196,27 +194,27 @@ class UsersetController extends Controller
     {
 
         $valid = $req->validate([
-            "nip"=>"required|min:18|max:18",
-            "nama"=>"required|min:5|max:30",
-            "email"=>"required|string|email|max:255|unique:users",
-            "pass"=> 'required|min:8',
-        ],[
-            'nip'=>[
-                'required'=>'NIP wajib diisi',
-                'min'=>'jumlah NIP kurang dari 18 karakter',
-                'max'=>'jumlah NIP melebihi 18 karakter',
+            "nip" => "required|min:18|max:18",
+            "nama" => "required|min:5|max:30",
+            "email" => "required|string|email|max:255|unique:users",
+            "pass" => 'required|min:8',
+        ], [
+            'nip' => [
+                'required' => 'NIP wajib diisi',
+                'min' => 'jumlah NIP kurang dari 18 karakter',
+                'max' => 'jumlah NIP melebihi 18 karakter',
             ],
-            'nama'=>[
-                'required'=>'Nama wajib diisi',
-                'min'=>'jumlah Nama kurang dari 5 karakter',
-                'max'=>'jumlah Nama melebihi 30 karakter',
+            'nama' => [
+                'required' => 'Nama wajib diisi',
+                'min' => 'jumlah Nama kurang dari 5 karakter',
+                'max' => 'jumlah Nama melebihi 30 karakter',
             ],
-            'email'=>[
-                'required'=>'email wajib diisi',
+            'email' => [
+                'required' => 'email wajib diisi',
             ],
-            'pass'=>[
-                'required'=>'Password wajib diisi',
-                'min'=>'jumlah Password kurang dari 8 karakter',
+            'pass' => [
+                'required' => 'Password wajib diisi',
+                'min' => 'jumlah Password kurang dari 8 karakter',
             ]
         ]);
 
@@ -242,10 +240,9 @@ class UsersetController extends Controller
     // menampilkan halaman registrasi KABAG
     public function RegistrasiKBG()
     {
-        return view("userset.registerKBG",[
+        return view("userset.registerKBG", [
             "title" => "Registrasi Kabag"
         ]);
-
     }
 
     // melakukan proses registrasi JFT
@@ -253,27 +250,27 @@ class UsersetController extends Controller
     {
 
         $valid = $req->validate([
-            "nip"=>"required|min:18|max:18",
-            "nama"=>"required|min:5|max:30",
-            "email"=>"required|string|email|max:255|unique:users",
-            "pass"=> 'required|min:8',
-        ],[
-            'nip'=>[
-                'required'=>'NIP wajib diisi',
-                'min'=>'jumlah NIP kurang dari 18 karakter',
-                'max'=>'jumlah NIP melebihi 18 karakter',
+            "nip" => "required|min:18|max:18",
+            "nama" => "required|min:5|max:30",
+            "email" => "required|string|email|max:255|unique:users",
+            "pass" => 'required|min:8',
+        ], [
+            'nip' => [
+                'required' => 'NIP wajib diisi',
+                'min' => 'jumlah NIP kurang dari 18 karakter',
+                'max' => 'jumlah NIP melebihi 18 karakter',
             ],
-            'nama'=>[
-                'required'=>'Nama wajib diisi',
-                'min'=>'jumlah Nama kurang dari 5 karakter',
-                'max'=>'jumlah Nama melebihi 30 karakter',
+            'nama' => [
+                'required' => 'Nama wajib diisi',
+                'min' => 'jumlah Nama kurang dari 5 karakter',
+                'max' => 'jumlah Nama melebihi 30 karakter',
             ],
-            'email'=>[
-                'required'=>'email wajib diisi',
+            'email' => [
+                'required' => 'email wajib diisi',
             ],
-            'pass'=>[
-                'required'=>'Password wajib diisi',
-                'min'=>'jumlah Password kurang dari 8 karakter',
+            'pass' => [
+                'required' => 'Password wajib diisi',
+                'min' => 'jumlah Password kurang dari 8 karakter',
             ]
         ]);
 
@@ -300,10 +297,9 @@ class UsersetController extends Controller
     // menampilkan halaman registrasi KABIRO
     public function RegistrasiKBR()
     {
-        return view("userset.registerKBR",[
+        return view("userset.registerKBR", [
             "title" => "Registrasi Kabiro"
         ]);
-
     }
 
     // melakukan proses registrasi KABIRO
@@ -311,27 +307,27 @@ class UsersetController extends Controller
     {
 
         $valid = $req->validate([
-            "nip"=>"required|min:18|max:18",
-            "nama"=>"required|min:5|max:30",
-            "email"=>"required|string|email|max:255|unique:users",
-            "pass"=> 'required|min:8',
-        ],[
-            'nip'=>[
-                'required'=>'NIP wajib diisi',
-                'min'=>'jumlah NIP kurang dari 18 karakter',
-                'max'=>'jumlah NIP melebihi 18 karakter',
+            "nip" => "required|min:18|max:18",
+            "nama" => "required|min:5|max:30",
+            "email" => "required|string|email|max:255|unique:users",
+            "pass" => 'required|min:8',
+        ], [
+            'nip' => [
+                'required' => 'NIP wajib diisi',
+                'min' => 'jumlah NIP kurang dari 18 karakter',
+                'max' => 'jumlah NIP melebihi 18 karakter',
             ],
-            'nama'=>[
-                'required'=>'Nama wajib diisi',
-                'min'=>'jumlah Nama kurang dari 5 karakter',
-                'max'=>'jumlah Nama melebihi 30 karakter',
+            'nama' => [
+                'required' => 'Nama wajib diisi',
+                'min' => 'jumlah Nama kurang dari 5 karakter',
+                'max' => 'jumlah Nama melebihi 30 karakter',
             ],
-            'email'=>[
-                'required'=>'email wajib diisi',
+            'email' => [
+                'required' => 'email wajib diisi',
             ],
-            'pass'=>[
-                'required'=>'Password wajib diisi',
-                'min'=>'jumlah Password kurang dari 8 karakter',
+            'pass' => [
+                'required' => 'Password wajib diisi',
+                'min' => 'jumlah Password kurang dari 8 karakter',
             ]
         ]);
 
@@ -358,7 +354,7 @@ class UsersetController extends Controller
     //logout process
     public function destroy($nip)
     {
-        $user = users::where('NIP_User','=',$nip);
+        $user = users::where('NIP_User', '=', $nip);
         $user->delete();
         return redirect('/userset');
     }
@@ -373,9 +369,10 @@ class UsersetController extends Controller
 
 
     // menampilkan halaman lupa password
-    public function showlupa(){
-        return view('/userset/lupapassword',[
-            "title"=>"NIP input",
+    public function showlupa()
+    {
+        return view('/userset/lupapassword', [
+            "title" => "NIP input",
         ]);
     }
 
@@ -383,15 +380,15 @@ class UsersetController extends Controller
     // mengirim otp ke email
     public function sendOtp($user)
     {
-        $otp = rand(100000,999999);
+        $otp = rand(100000, 999999);
         $time = time();
 
         // dd($time);
 
         Tokens::updateOrCreate(
-            ['email'=>$user->email],
+            ['email' => $user->email],
             [
-                'email'=>$user->email,
+                'email' => $user->email,
                 'token' => $otp,
                 'created' => $time
             ]
@@ -401,9 +398,9 @@ class UsersetController extends Controller
         // dd($data['email']);
         $data['title'] = 'OTP Verifikasi';
 
-        $data['body'] = 'Kode OTP untuk Menukar Password :- '.$otp;
+        $data['body'] = 'Kode OTP untuk Menukar Password :- ' . $otp;
 
-        Mail::send('mail.email',['data'=>$data],function($message) use ($data){
+        Mail::send('mail.email', ['data' => $data], function ($message) use ($data) {
             $message->to($data['email'])->subject($data['title']);
         });
     }
@@ -413,19 +410,19 @@ class UsersetController extends Controller
     public function verification(Request $req)
     {
         $id = $req->validate([
-            'nip'=>'required|min:18|max:18'
+            'nip' => 'required|min:18|max:18'
         ]);
-        $user = users::where('NIP_User',$id)->first();
+        $user = users::where('NIP_User', $id)->first();
 
         $email = $user->email;
         $nip = $user->NIP_User;
 
-        $this->sendOtp($user);//OTP SEND
+        $this->sendOtp($user); //OTP SEND
 
-        return view('userset.verifikasi',[
-            "title"=>'Verifikasi OTP',
-            'email'=>$email,
-            'nip'=>$nip
+        return view('userset.verifikasi', [
+            "title" => 'Verifikasi OTP',
+            'email' => $email,
+            'nip' => $nip
         ]);
     }
 
@@ -433,23 +430,22 @@ class UsersetController extends Controller
     public function verifiedOtp(Request $otp)
     {
         $isi = $otp->validate([
-            'nip'=>'required|min:18|max:18',
-            'email'=>'required',
-            'otp'=>'required|min:6|max:6',
+            'nip' => 'required|min:18|max:18',
+            'email' => 'required',
+            'otp' => 'required|min:6|max:6',
         ]);
 
         // dd($isi);
         // $cekotp = Tokens::where('token',$isi['otp'])->count();
-        $otpData = Tokens::where('token',$isi['otp'])->first();
+        $otpData = Tokens::where('token', $isi['otp'])->first();
 
-        if($otpData != null){
-            users::where('email',$isi['email'])->update(['is_verified'=>true]);
+        if ($otpData != null) {
+            users::where('email', $isi['email'])->update(['is_verified' => true]);
             $nip = (string) $isi['nip'];
             return redirect('/ubah_pass')->with('nip', $nip);
-
-        }else{
-            $user = users::where('NIP_User',$isi['nip'])->first();
-            Tokens::where('email',$user->email)->delete();
+        } else {
+            $user = users::where('NIP_User', $isi['nip'])->first();
+            Tokens::where('email', $user->email)->delete();
             return redirect('/lupapassword');
         }
     }
@@ -458,62 +454,61 @@ class UsersetController extends Controller
     // mengirim ulang otp
     public function resendOtp(Request $request)
     {
-        $user = users::where('email',$request->email)->first();
-        $otpData = Tokens::where('email',$request->email)->first();
+        $user = users::where('email', $request->email)->first();
+        $otpData = Tokens::where('email', $request->email)->first();
 
         $currentTime = time();
         $time = $otpData->created_at;
 
-        if($currentTime >= $time && $time >= $currentTime - (90+5)){//90 seconds
-            return back()->withErrors(['err'=>'coba lagi setelah waktu habis']);
+        if ($currentTime >= $time && $time >= $currentTime - (90 + 5)) { //90 seconds
+            return back()->withErrors(['err' => 'coba lagi setelah waktu habis']);
+        } else {
+            $this->sendOtp($user); //OTP SEND
+            return response()->json(['success' => true, 'msg' => 'OTP has been sent']);
         }
-        else{
-            $this->sendOtp($user);//OTP SEND
-            return response()->json(['success' => true,'msg'=> 'OTP has been sent']);
-        }
-
     }
 
     // // menampilkan halaman ubah password
-    public function ubah_pass_show(){
+    public function ubah_pass_show()
+    {
         $nip = session('nip');
-        if($nip==null){
+        if ($nip == null) {
             return redirect('/lupapassword');
-        }else{
-            $verified = users::select('is_verified')->where('NIP_User',$nip);
+        } else {
+            $verified = users::select('is_verified')->where('NIP_User', $nip);
             if ($verified == false) {
                 return redirect('/lupapassword');
             } else {
-                return view('userset.ubahpassword',[
-                    'title'=>'Ubah Sandi',
-                    'nip'=>session('nip')
+                return view('userset.ubahpassword', [
+                    'title' => 'Ubah Sandi',
+                    'nip' => session('nip')
                 ]);
             }
-
         }
     }
 
 
 
     // tukar password proses
-    public function ubah_pass_proses(Request $req){
+    public function ubah_pass_proses(Request $req)
+    {
         $isi = $req->validate([
-            'nip'=>'required|min:18|max:18',
-            'pass1'=>'required|min:8',
-            'pass2'=>'required|min:8',
+            'nip' => 'required|min:18|max:18',
+            'pass1' => 'required|min:8',
+            'pass2' => 'required|min:8',
         ]);
 
-        $kunci = users::select('is_verified')->where('NIP_User',$isi['nip'])->get();
-        if (($kunci == true) OR ($kunci == 1)) {
-            if($isi['pass1']===$isi['pass2']){
+        $kunci = users::select('is_verified')->where('NIP_User', $isi['nip'])->get();
+        if (($kunci == true) or ($kunci == 1)) {
+            if ($isi['pass1'] === $isi['pass2']) {
                 $sandi = Hash::make($isi['pass1']);
-                users::where('NIP_User',$isi['nip'])->update(['Password'=>$sandi]);
-                users::where('NIP_User',$isi['nip'])->update(['is_verified'=>false]);
-                $user = users::where('NIP_User',$isi['nip'])->first();
-                Tokens::where('email',$user->email)->delete();
+                users::where('NIP_User', $isi['nip'])->update(['Password' => $sandi]);
+                users::where('NIP_User', $isi['nip'])->update(['is_verified' => false]);
+                $user = users::where('NIP_User', $isi['nip'])->first();
+                Tokens::where('email', $user->email)->delete();
                 return redirect('/');
-            }else{
-                return back()->withErrors(['error'=>'sandi yang dimasukkan keduanya tidak sama']);
+            } else {
+                return back()->withErrors(['error' => 'sandi yang dimasukkan keduanya tidak sama']);
             }
         } else {
             return redirect('/');
@@ -524,13 +519,14 @@ class UsersetController extends Controller
 
 
     // set kunci registrasi
-    public function addKeyReg(Request $set){
+    public function addKeyReg(Request $set)
+    {
         $key = $set->validate([
-            'set'=> 'required|unique:kontrol,set',
-            'core'=> 'required|unique:kontrol,code',
+            'set' => 'required|unique:kontrol,set',
+            'core' => 'required|unique:kontrol,code',
         ]);
 
-        $key['core']= (int)$key['core'];
+        $key['core'] = (int)$key['core'];
 
 
         $let['set'] = $key['set'];
@@ -540,8 +536,9 @@ class UsersetController extends Controller
         return redirect('/userset');
     }
     // delete kunci registrasi
-    public function delKeyReg(){
-        $key = kontrolModel::where('set','=','REG');
+    public function delKeyReg()
+    {
+        $key = kontrolModel::where('set', '=', 'REG');
         $key->delete();
         return redirect('/userset');
     }
@@ -549,13 +546,14 @@ class UsersetController extends Controller
 
     // ================================KHUSUS OPERATOR=====================================
     // set kunci registrasi OPR
-    public function addKeyRegOPR(Request $set){
+    public function addKeyRegOPR(Request $set)
+    {
         $key = $set->validate([
-            'set'=> 'required|unique:kontrol,set',
-            'core'=> 'required|unique:kontrol,code',
+            'set' => 'required|unique:kontrol,set',
+            'core' => 'required|unique:kontrol,code',
         ]);
 
-        $key['core']= (int)$key['core'];
+        $key['core'] = (int)$key['core'];
 
 
         $let['set'] = $key['set'];
@@ -565,8 +563,9 @@ class UsersetController extends Controller
         return redirect('/userset');
     }
     // delete kunci registrasi JFT
-    public function delKeyRegOPR(){
-        $key = kontrolModel::where('set','=','OPR');
+    public function delKeyRegOPR()
+    {
+        $key = kontrolModel::where('set', '=', 'OPR');
         $key->delete();
         return redirect('/userset');
     }
@@ -574,13 +573,14 @@ class UsersetController extends Controller
 
     // ================================KHUSUS JFT=====================================
     // set kunci registrasi JFT
-    public function addKeyRegJFT(Request $set){
+    public function addKeyRegJFT(Request $set)
+    {
         $key = $set->validate([
-            'set'=> 'required|unique:kontrol,set',
-            'core'=> 'required|unique:kontrol,code',
+            'set' => 'required|unique:kontrol,set',
+            'core' => 'required|unique:kontrol,code',
         ]);
 
-        $key['core']= (int)$key['core'];
+        $key['core'] = (int)$key['core'];
 
 
         $let['set'] = $key['set'];
@@ -590,8 +590,9 @@ class UsersetController extends Controller
         return redirect('/userset');
     }
     // delete kunci registrasi JFT
-    public function delKeyRegJFT(){
-        $key = kontrolModel::where('set','=','JFT');
+    public function delKeyRegJFT()
+    {
+        $key = kontrolModel::where('set', '=', 'JFT');
         $key->delete();
         return redirect('/userset');
     }
@@ -599,13 +600,14 @@ class UsersetController extends Controller
 
     // ================================KHUSUS KABAG=====================================
     // set kunci registrasi JFT
-    public function addKeyRegKBG(Request $set){
+    public function addKeyRegKBG(Request $set)
+    {
         $key = $set->validate([
-            'set'=> 'required|unique:kontrol,set',
-            'kbg'=> 'required|unique:kontrol,code',
+            'set' => 'required|unique:kontrol,set',
+            'kbg' => 'required|unique:kontrol,code',
         ]);
 
-        $key['kbg']= (int)$key['kbg'];
+        $key['kbg'] = (int)$key['kbg'];
 
 
         $let['set'] = $key['set'];
@@ -615,8 +617,9 @@ class UsersetController extends Controller
         return redirect('/userset');
     }
     // delete kunci registrasi JFT
-    public function delKeyRegKBG(){
-        $key = kontrolModel::where('set','=','KBG');
+    public function delKeyRegKBG()
+    {
+        $key = kontrolModel::where('set', '=', 'KBG');
         $key->delete();
         return redirect('/userset');
     }
@@ -624,13 +627,14 @@ class UsersetController extends Controller
 
     // ================================KHUSUS KABIRO=====================================
     // set kunci registrasi KABIRO
-    public function addKeyRegKBR(Request $set){
+    public function addKeyRegKBR(Request $set)
+    {
         $key = $set->validate([
-            'set'=> 'required|unique:kontrol,set',
-            'kbr'=> 'required|unique:kontrol,code',
+            'set' => 'required|unique:kontrol,set',
+            'kbr' => 'required|unique:kontrol,code',
         ]);
 
-        $key['core']= (int)$key['kbr'];
+        $key['core'] = (int)$key['kbr'];
 
 
         $let['set'] = $key['set'];
@@ -640,8 +644,9 @@ class UsersetController extends Controller
         return redirect('/userset');
     }
     // delete kunci registrasi KABIRO
-    public function delKeyRegKBR(){
-        $key = kontrolModel::where('set','=','KBR');
+    public function delKeyRegKBR()
+    {
+        $key = kontrolModel::where('set', '=', 'KBR');
         $key->delete();
         return redirect('/userset');
     }
@@ -650,13 +655,14 @@ class UsersetController extends Controller
 
     // =========================================================KHUSUS BAGIAN LUPA PASSWORD
     // set kunci forget password
-    public function addKeyFor(Request $reg){
+    public function addKeyFor(Request $reg)
+    {
         $key = $reg->validate([
-            'set'=> 'required',
-            'codes'=> 'required',
+            'set' => 'required',
+            'codes' => 'required',
         ]);
 
-        $key['codes']= (int)$key['codes'];
+        $key['codes'] = (int)$key['codes'];
 
         $set['set'] = $key['set'];
         $set['code'] = $key['codes'];
@@ -667,8 +673,9 @@ class UsersetController extends Controller
     }
 
     // delete forget password
-    public function delKeyFor(){
-        $key = kontrolModel::where('set','=','FRG');
+    public function delKeyFor()
+    {
+        $key = kontrolModel::where('set', '=', 'FRG');
         $key->delete();
         return redirect('/userset');
     }
@@ -681,37 +688,39 @@ class UsersetController extends Controller
     // ==================================================BAGIAN KABIRO=================================================================
 
 
-    public function showKabiro(){
-        $user = users::where('kabiro',"=",1)->first();
+    public function showKabiro()
+    {
+        $user = users::where('kabiro', "=", 1)->first();
 
         // dd($user);
-        return response()->view('userset.kabiro',[
-            'title'=>'Data Kabiro',
-            'nip'=>$user['NIP_User'],
-            'nama'=>$user['Nama_User'],
-            'email'=>$user['email'],
-            'biro'=>$user['biro'],
-            'tipedata'=>$user['tipedata'],
-            'ttd'=>$user['ttd'],
+        return response()->view('userset.kabiro', [
+            'title' => 'Data Kabiro',
+            'nip' => $user['NIP_User'],
+            'nama' => $user['Nama_User'],
+            'email' => $user['email'],
+            'biro' => $user['biro'],
+            'tipedata' => $user['tipedata'],
+            'ttd' => $user['ttd'],
         ]);
     }
 
-    public function UpdateDataKabiro(Request $up){
+    public function UpdateDataKabiro(Request $up)
+    {
         $valid = $up->validate([
-            'nip'=>'required|max:18|min:18',
-            'nama'=>'required',
-            'gmail'=>'required',
-            'ttd'=>'required|image',
+            'nip' => 'required|max:18|min:18',
+            'nama' => 'required',
+            'gmail' => 'required',
+            'ttd' => 'required|image',
         ]);
         // dd($valid['ttd']);
 
         $file = $valid['ttd'];
-        
+
         $ttdfile = file_get_contents($file);
         $mime = (string) $file->getClientMimeType();
 
         // menyimpan gambar ke database
-        Users::where('kabiro','=',1)->update([
+        Users::where('kabiro', '=', 1)->update([
             'NIP_User' => $valid['nip'],
             'Nama_User' => $valid["nama"],
             'email' => $valid["gmail"],
@@ -724,8 +733,4 @@ class UsersetController extends Controller
         // // Redirect dengan pesan sukses
         return redirect('/kabiro');
     }
-
-
-
-
 }

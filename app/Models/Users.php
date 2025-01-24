@@ -22,6 +22,7 @@ class users extends Authenticatable
         'NIP_User',
         'Nama_User',
         'Password',
+        'opadpim',
         'email',
         'biro',
         'jft',
