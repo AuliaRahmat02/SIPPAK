@@ -1,4 +1,4 @@
-INDEX KODE SURAT PENGANTAR pada tabel naik_ver2s tes
+INDEX KODE SURAT PENGANTAR pada tabel naik_ver2s
 1 = surat Kenaikan pangkat
 2 = surat Pensiun
 3 = Kartu isteri/suami

@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Support\Str;
-// use Illuminate\Database\Eloquent\Model;
+// use Illuminate\Database\Eloquent\Model dsds;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
