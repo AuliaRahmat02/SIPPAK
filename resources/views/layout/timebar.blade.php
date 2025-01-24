@@ -6,13 +6,13 @@
     @auth
         {{-- user container start --}}
         <div class="flex justify-center">
-            <img src="../../pic/user.png" alt="user" class="flex-none inline-block p-2 leading-[40px]">
+            <img src="../../pic/User.png" alt="1" class="flex-none inline-block p-2 leading-[40px]">
             <p class="transition-all duration-150 text-black text-sm leading-[50px] select-none text">{{ auth()->user()->Nama_User }}({{ auth()->user()->NIP_User }}) - {{ auth()->user()->biro }}</p>
         </div>
     @else
         {{-- user container start --}}
         <div class="flex justify-center">
-            <img src="../../pic/user1.png" alt="user" class="flex-none inline-block p- leading-[40px]">
+            <img src="../../pic/User.png" alt="user" class="flex-none inline-block p- leading-[40px]">
             <p class="transition-all duration-150 text-black text-sm leading-[40px] select-none text "></p>
         </div>
     @endauth

@@ -1,6 +1,6 @@
-FROM node:18.18.2-alpine as build-assets
+FROM node:18.18.2-alpine AS build-assets
 
-FROM php:8.2-fpm-alpine3.17 as build-stage
+FROM php:8.2-fpm-alpine3.17 AS build-stage
 
 # Ambil file2 node yang ada di image node:**-alpine pindahkan ke image php-fpm, jadi di dalam alpine php fpm ada node js versi 18
 # RUN apk add --update nodejs npm
