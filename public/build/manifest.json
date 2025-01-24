@@ -1,0 +1,17 @@
+{
+  "resources/css/app.css": {
+    "file": "assets/app-DakrKoZk.css",
+    "src": "resources/css/app.css",
+    "isEntry": true
+  },
+  "resources/css/footer.css": {
+    "file": "assets/footer-l0sNRNKZ.js",
+    "src": "resources/css/footer.css",
+    "isEntry": true
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-CifqVuM1.js",
+    "src": "resources/js/app.js",
+    "isEntry": true
+  }
+}
