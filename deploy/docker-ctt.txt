@@ -1,0 +1,8 @@
+docker build -t sippak-image .
+
+
+docker run -d \
+-p 9096:9096 \
+--restart unless-stopped \
+--name sippak-con \
+sippak-image
