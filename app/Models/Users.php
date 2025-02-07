@@ -7,7 +7,7 @@ use Illuminate\Support\Str;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class users extends Authenticatable
+class Users extends Authenticatable
 {
     use Notifiable;
 
@@ -44,7 +44,8 @@ class users extends Authenticatable
     }
 
     protected $hidden = [
-        'Password', 'remember_token',
+        'Password',
+        'remember_token',
     ];
 
     public function getAuthPassword()
@@ -71,7 +72,3 @@ class users extends Authenticatable
         return $a;
     }
 }
-
-
-
-
